@@ -5,8 +5,9 @@ role: Masters in Applied Artificial Intelligence at Stevens Institute of
 bio: Graduate Student Researcher at Stevens Institute of Technology
 interests:
   - Artificial Intelligence
-  - Computational Linguistics
+  - Software Development
   - Information Retrieval
+  - Research
 social:
   - icon: envelope
     icon_pack: fas
@@ -27,6 +28,11 @@ social:
     link: https://coronacasepredictor.herokuapp.com/
     icon: id-card-clip
     icon_pack: fas
+  - display:
+      header: false
+    link: https://www.youtube.com/channel/UCNjcOFOjpiqtWlxpyaKfUWg
+    icon_pack: fas
+    icon: video
 organizations:
   - name: Stevens Institute of Technology
     url: https://www.stevens.edu/
@@ -34,7 +40,7 @@ education:
   courses:
     - course: Masters in Applied Artificial Intelligence
       institution: Stevens Institute of Technology
-      year: 2022
+      year: 2024
     - course: B.Tech in Computer Science
       institution: College of Technology & Engineering, Udaipur
       year: 2017
