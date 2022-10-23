@@ -1,77 +1,100 @@
 ---
-title: Display Jupyter Notebooks with Academic
-subtitle: Learn how to blog in Academic using Jupyter notebooks
-summary: Learn how to blog in Academic using Jupyter notebooks
+summary: >-
+  <!--StartFragment-->
+
+
+  In this post we will learn how we can crawl popular websites having multiple subdomain links and extract Indian Celebrity Personality data from them.
+
+
+  <!--EndFragment-->
 authors:
   - admin
+lastMod: 2019-09-05T00:00:00Z
+title: Crawl popular websites & create a database of Indian movie celebrities
+  with their images and personality traits
+subtitle: In this post we will learn how we can crawl popular websites having
+  multiple subdomain links and extract Indian Celebrity Personality data from
+  them.
+date: 2019-02-05T00:00:00Z
 tags: []
 categories: []
 projects: []
-date: '2019-02-05T00:00:00Z'
-lastMod: '2019-09-05T00:00:00Z'
 image:
-  caption: ''
-  focal_point: ''
+  caption: ""
+  focal_point: ""
 ---
+<!--StartFragment-->
 
-```python
-from IPython.core.display import Image
-Image('https://www.python.org/static/community_logos/python-logo-master-v3-TM-flattened.png')
-```
+In this post we will learn how we can crawl popular websites having multiple subdomain links and extract Indian Celebrity Personality data from them.
 
-![png](./index_1_0.png)
+![](https://miro.medium.com/max/280/1*8hJ5Eaj_n6Pi3bjxqHWiHQ.jpeg)
 
-```python
-print("Welcome to Academic!")
-```
+# **Modules** to be Installed-
 
-    Welcome to Academic!
+* Scrapy
+* Beautiful Soap
+* MySQL-Connector-Python
 
-## Install Python and JupyterLab
+![](https://miro.medium.com/max/700/1*9-Hf1rY3AN7ZOgRI-jlM0w.png)
 
-[Install Anaconda](https://www.anaconda.com/distribution/#download-section) which includes Python 3 and JupyterLab.
+# **Pre-Requisite -**
 
-Alternatively, install JupyterLab with `pip3 install jupyterlab`.
+Table must be created in Database for saving required data
 
-## Create or upload a Jupyter notebook
+# STEP 1 — Creating Scrapy Project
 
-Run the following commands in your Terminal, substituting `<MY-WEBSITE-FOLDER>` and `<SHORT-POST-TITLE>` with the file path to your Academic website folder and a short title for your blog post (use hyphens instead of spaces), respectively:
+Using Scrapy, we can create multiple crawlers for different subdomains of a website. Hence this is very helpful. We can create Scrapy project using below command in cmd terminal
 
-```bash
-mkdir -p <MY-WEBSITE-FOLDER>/content/post/<SHORT-POST-TITLE>/
-cd <MY-WEBSITE-FOLDER>/content/post/<SHORT-POST-TITLE>/
-jupyter lab index.ipynb
-```
+> **scrapy startproject IndianCelebrity**
+>
+> **cd IndianCelebrity**
+>
+> **scrapy genspider celebrity in.bookmyshow.com**
 
-The `jupyter` command above will launch the JupyterLab editor, allowing us to add Academic metadata and write the content.
+# **STEP 2 — Extract Links for Navigation**
 
-## Edit your post metadata
+Step 1 will create following structure of project
 
-The first cell of your Jupter notebook will contain your post metadata ([front matter](https://sourcethemes.com/academic/docs/front-matter/)).
+![](https://miro.medium.com/max/499/1*-1NfNyp9bfuEIFCuSyJ10Q.png)
 
-In Jupter, choose _Markdown_ as the type of the first cell and wrap your Academic metadata in three dashes, indicating that it is YAML front matter:
+In spiders folder, as we can see there is **celebrity.py** class which is crawling specific website. Similarly we can add more classes here for multiple websites based on the requirement.
 
-```
----
-title: My post's title
-date: 2019-09-01
+In our case, we are crawling below link
 
-# Put any other Academic metadata here...
----
-```
+## [Bollywood Archives - BookMyShow](https://in.bookmyshow.com/entertainment/movies/hindi/)
 
-Edit the metadata of your post, using the [documentation](https://sourcethemes.com/academic/docs/managing-content) as a guide to the available options.
+### [Copyright 2019 © Bigtree Entertainment Pvt. Ltd. All Rights Reserved. The content and images used on this site are…](https://in.bookmyshow.com/entertainment/movies/hindi/)
 
-To set a [featured image](https://sourcethemes.com/academic/docs/managing-content/#featured-image), place an image named `featured` into your post's folder.
+[in.bookmyshow.com](https://in.bookmyshow.com/entertainment/movies/hindi/)
 
-For other tips, such as using math, see the guide on [writing content with Academic](https://wowchemy.com/docs/content/writing-markdown-latex/).
+We will mention below rule to extract links for navigation
 
-## Convert notebook to Markdown
+> ***Rule(LinkExtractor(allow=(), restrict_css=(‘.next.page-numbers’,)),*\
+> *callback=”parse_item”,*\
+> *follow=True),)***
 
-```bash
-jupyter nbconvert index.ipynb --to markdown --NbConvertApp.output_files_dir=.
-```
+Here, next.page-numbers is the name of class for navigating to next page
 
-## Example
+We are calling parse_item further after navigating to different pages
 
-This post was created with Jupyter. The orginal files can be found at https://github.com/gcushen/hugo-academic/tree/master/exampleSite/content/post/jupyter
+# STEP 3 — Parse Links for navigating to Celebrities Page
+
+After navigating to next pages one by one, we will further filter links for celebrity pages and save them to **Filtered_itemlinks.**
+
+See below Code Snippet
+
+![](https://miro.medium.com/max/700/1*CMIoR4B7XskLZOTwaGtDQw.png)
+
+# STEP 4 — Parse celebrity page for saving details of celebrities
+
+Next step is to parse celebrity pages for fetching there data. We are fetching there name, picture and personality description on the respective page simultaneously.
+
+After fetching data, we are connecting MySQL database and saving all the details.
+
+Code snippet for above step -
+
+![](https://miro.medium.com/max/700/1*4O-7XTzcMXq69qYGzLWe_g.png)
+
+Here we are exploring the html structure of webpages and using xpath to extract the data.
+
+<!--EndFragment-->
