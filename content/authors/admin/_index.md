@@ -2,6 +2,7 @@
 title: Shivani Bhawsar
 role: Masters in Applied Artificial Intelligence at Stevens Institute of
   Technology | Adobe | Amdocs | IBM
+avatar_filename: shivani-bhawsar.jpg
 bio: Graduate Student Researcher at Stevens Institute of Technology
 interests:
   - Artificial Intelligence
