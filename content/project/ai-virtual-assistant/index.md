@@ -11,7 +11,7 @@ tags:
   - Neural Networks
   - Python
 image:
-  filename: featured
+  filename: andrea-de-santis-zwd435-ewb4-unsplash.jpg
   focal_point: Smart
   preview_only: false
 ---
