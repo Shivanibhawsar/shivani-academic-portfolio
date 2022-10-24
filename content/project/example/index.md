@@ -3,11 +3,10 @@ slides: example
 url_pdf: ""
 summary: ""
 url_video: ""
-date: 2016-04-27T00:00:00Z
+date: 2016-04-27T00:00:00.000Z
 external_link: ""
 url_slides: ""
-title: Mosaic( Data Science, Netflix conductor, ML Algorithms, Spring boot,
-  React, Azure)
+title: Mosaic (Personalized Content for Creative Cloud Customers of Adobe)
 tags:
   - Java
   - Python
