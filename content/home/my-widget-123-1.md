@@ -1,10 +1,10 @@
 ---
-widget: skills
-widget_id: skills
+widget: experience
+widget_id: Experience
 headless: true
-weight: 70
-title: Skills
-active: true
+weight: 40
+title: Experience
+active: false
 design:
   columns: "2"
   background:
