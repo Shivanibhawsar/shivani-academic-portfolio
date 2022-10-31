@@ -1,8 +1,8 @@
 ---
 widget: skills
-widget_id: my-widget-123
+widget_id: skills
 headless: true
-weight: 10
+weight: 70
 title: Skills
 active: true
 design:
